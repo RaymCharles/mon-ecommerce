@@ -36,9 +36,9 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<EcommerceContext>();
     db.Products.AddRange(
-        new Api.Models.Product { Name = "Chaussures", Price = 59.99M },
-        new Api.Models.Product { Name = "T-shirt", Price = 19.99M },
-        new Api.Models.Product { Name = "Pantalon", Price = 39.99M }
+        new Api.Models.Product { Name = "Chaussures", Price = 59.99M, Image = "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80", Category = "chaussure" },
+        new Api.Models.Product { Name = "T-shirt", Price = 19.99M, Image = "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80", Category = "vetement" },
+        new Api.Models.Product { Name = "Pantalon", Price = 39.99M, Image = "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80", Category = "vetement" }
     );
     db.Users.AddRange(
         new Api.Models.User { Username = "alice", Email = "alice@email.com" },

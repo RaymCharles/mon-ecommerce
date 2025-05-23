@@ -10,5 +10,7 @@ namespace Api.Models
         public string? Name { get; set; } // Nom du produit
         [Range(0, double.MaxValue)]
         public decimal Price { get; set; } // Prix du produit
+        public string? Image { get; set; } // URL de l'image du produit
+        public string? Category { get; set; } // Catégorie du produit (vetement, chaussure, etc.)
     }
 }

@@ -10,6 +10,8 @@ interface Product {
   id: number;
   name: string;
   price: number;
+  image?: string;
+  category?: string;
 }
 
 function Home() {
@@ -42,7 +44,9 @@ function Home() {
             id={product.id}
             name={product.name}
             price={product.price}
-            onAdd={() => addToCart(product)}
+            image={product.image}
+            category={product.category}
+            onAdd={(size) => addToCart(size ? { ...product, name: `${product.name} (${size})` } : product)}
           />
         ))}
       </div>

@@ -35,4 +35,21 @@
 }
 .add-btn:hover {
   background: #145c27;
+}
+.product-img {
+  width: 100%;
+  max-width: 180px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.7rem;
+  align-self: center;
+}
+.size-select {
+  margin-bottom: 0.7rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  background: #f6f8fa;
 } 
