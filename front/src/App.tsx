@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import './App.css'
 
@@ -8,7 +9,7 @@ interface Product {
   price: number;
 }
 
-function App() {
+function Home() {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -27,7 +28,6 @@ function App() {
 
   return (
     <div className="container">
-      <h1>🛒 Mon E-commerce</h1>
       <h2>Liste des produits</h2>
       {loading && <p>Chargement...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -39,6 +39,39 @@ function App() {
         ))}
       </ul>
     </div>
+  )
+}
+
+function Products() {
+  return <Home />;
+}
+
+function Orders() {
+  return <div className="container"><h2>Commandes</h2><p>À venir…</p></div>;
+}
+
+function Cart() {
+  return <div className="container"><h2>Panier</h2><p>À venir…</p></div>;
+}
+
+function App() {
+  return (
+    <Router>
+      <nav className="navbar">
+        <ul>
+          <li><Link to="/">Accueil</Link></li>
+          <li><Link to="/products">Produits</Link></li>
+          <li><Link to="/orders">Commandes</Link></li>
+          <li><Link to="/cart">Panier</Link></li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </Router>
   )
 }
 
