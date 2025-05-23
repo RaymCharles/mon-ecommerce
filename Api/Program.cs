@@ -19,6 +19,16 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddControllers();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Seed de données
@@ -43,6 +53,8 @@ using (var scope = app.Services.CreateScope())
     );
     db.SaveChanges();
 }
+
+app.UseCors();
 
 if (app.Environment.IsDevelopment())
 {

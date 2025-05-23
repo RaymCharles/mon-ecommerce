@@ -19,7 +19,7 @@ function Home() {
 
   useEffect(() => {
     // À adapter si l'API tourne sur un autre port
-    fetch('http://localhost:5000/api/products')
+    fetch('http://localhost:5015/api/products')
       .then((res) => {
         if (!res.ok) throw new Error('Erreur lors du chargement des produits')
         return res.json()
