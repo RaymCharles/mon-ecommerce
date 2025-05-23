@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import { CartProvider, useCart } from './CartContext'
 import type { CartItem } from './CartContext'
+import ProductCard from './ProductCard'
 
 // TypeScript : définition du type Product
 interface Product {
@@ -34,16 +35,17 @@ function Home() {
       <h2>Liste des produits</h2>
       {loading && <p>Chargement...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <ul>
+      <div className="products-grid">
         {products.map((product) => (
-          <li key={product.id} style={{ marginBottom: 8 }}>
-            <strong>{product.name}</strong> — {product.price} €
-            <button style={{ marginLeft: 8 }} onClick={() => addToCart(product)}>
-              Ajouter au panier
-            </button>
-          </li>
+          <ProductCard
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            onAdd={() => addToCart(product)}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   )
 }
@@ -58,24 +60,49 @@ function Orders() {
 
 function Cart() {
   const { cart, removeFromCart } = useCart()
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  const { setCart } = useCart() as any
   return (
     <div className="container">
       <h2>Panier</h2>
       {cart.length === 0 ? (
         <p>Votre panier est vide.</p>
       ) : (
-        <ul>
-          {cart.map((item: CartItem) => (
-            <li key={item.id}>
-              <strong>{item.name}</strong> — {item.price} € x {item.quantity}
-              <button style={{ marginLeft: 8 }} onClick={() => removeFromCart(item.id)}>
-                Retirer
-              </button>
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul>
+            {cart.map((item: CartItem) => (
+              <li key={item.id}>
+                <strong>{item.name}</strong> — {item.price} € x {item.quantity}
+                <button style={{ marginLeft: 8 }} onClick={() => removeFromCart(item.id)}>
+                  Retirer
+                </button>
+              </li>
+            ))}
+          </ul>
+          <div className="cart-total">Total : {total.toFixed(2)} €</div>
+          <div className="cart-actions">
+            <button className="empty-cart-btn" onClick={() => setCart([])}>
+              Vider le panier
+            </button>
+          </div>
+        </>
       )}
     </div>
+  )
+}
+
+function Navbar() {
+  const { cart } = useCart()
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0)
+  return (
+    <nav className="navbar">
+      <ul>
+        <li><Link to="/">Accueil</Link></li>
+        <li><Link to="/products">Produits</Link></li>
+        <li><Link to="/orders">Commandes</Link></li>
+        <li><Link to="/cart">Panier {count > 0 && <span>({count})</span>}</Link></li>
+      </ul>
+    </nav>
   )
 }
 
@@ -83,14 +110,7 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <nav className="navbar">
-          <ul>
-            <li><Link to="/">Accueil</Link></li>
-            <li><Link to="/products">Produits</Link></li>
-            <li><Link to="/orders">Commandes</Link></li>
-            <li><Link to="/cart">Panier</Link></li>
-          </ul>
-        </nav>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
