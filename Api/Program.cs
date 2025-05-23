@@ -17,6 +17,8 @@ builder.Services.AddSwaggerGen(options =>
         options.IncludeXmlComments(xmlPath);
 });
 
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 // Seed de données
