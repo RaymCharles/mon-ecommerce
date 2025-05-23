@@ -1,6 +1,5 @@
 # 🛒 mon-ecommerce
 
-![Bannière e-commerce](https://images.unsplash.com/photo-1515168833906-d2a3b82b302b?auto=format&fit=crop&w=1200&q=80)
 
 Ce projet est une API e-commerce développée en .NET 8 (ASP.NET Core) dans le but d'améliorer mes compétences en développement backend, conception d'API REST, et bonnes pratiques de structuration de projet.
 

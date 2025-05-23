@@ -1,0 +1,42 @@
+# Fichiers et dossiers à ignorer pour un projet .NET / C#
+
+# Dossiers de build
+bin/
+obj/
+
+# Dossiers de configuration utilisateur
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Fichiers de logs
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.temp
+
+# Dossiers de publication
+publish/
+
+# Fichiers générés par Visual Studio Code
+.vscode/
+
+# Fichiers de test
+TestResults/
+
+# Fichiers de dépendances NuGet
+*.nupkg
+packages/
+.nuget/
+
+# Fichiers secrets ou de config locale
+appsettings.Development.json
+secrets.json
+
+# Autres fichiers système
+.DS_Store
+Thumbs.db 
