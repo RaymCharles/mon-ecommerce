@@ -6,23 +6,23 @@ Ce projet est une API e-commerce développée en .NET 8 (ASP.NET Core) et un fro
 
 ## 🎯 Objectifs pédagogiques
 
-- 🚀 Approfondir mes connaissances sur ASP.NET Core, Entity Framework Core, React et TypeScript
-- 🧩 Mettre en place une architecture propre et évolutive (backend + frontend)
-- 🛡️ Expérimenter la validation des données, la pagination, le seed de données, la documentation Swagger
-- ☁️ Préparer le projet pour un futur déploiement (Cloudflare, Azure, etc.)
-- 🛠️ Découvrir les bonnes pratiques pour la gestion d'un projet e-commerce (modélisation, relations, contrôleurs REST, front moderne, etc.)
+- Approfondir mes connaissances sur ASP.NET Core, Entity Framework Core, React et TypeScript
+- Mettre en place une architecture propre et évolutive (backend + frontend)
+- Expérimenter la validation des données, la pagination, le seed de données, la documentation Swagger
+- Préparer le projet pour un futur déploiement (Cloudflare, Azure, etc.)
+- Découvrir les bonnes pratiques pour la gestion d'un projet e-commerce (modélisation, relations, contrôleurs REST, front moderne, etc.)
 
 ## ✨ Fonctionnalités principales
 
-- 📦 Gestion des produits (CRUD)
-- 👤 Gestion des utilisateurs (CRUD)
-- 🧾 Gestion des commandes (CRUD)
-- 🧺 Gestion des items de commande (OrderItem) pour lier produits et commandes
-- ✅ Validation des données (DataAnnotations)
-- 📄 Pagination sur les endpoints principaux
-- 📚 Documentation interactive via Swagger
-- 🌱 Seed de données automatique au démarrage
-- 🖥️ Front-end moderne React/TypeScript (Vite)
+- Gestion des produits (CRUD)
+- Gestion des utilisateurs (CRUD)
+- Gestion des commandes (CRUD)
+- Gestion des items de commande (OrderItem) pour lier produits et commandes
+- Validation des données (DataAnnotations)
+- Pagination sur les endpoints principaux
+- Documentation interactive via Swagger
+- Seed de données automatique au démarrage
+- Front-end moderne React/TypeScript (Vite)
 
 ## 🛠️ Stack technique
 
